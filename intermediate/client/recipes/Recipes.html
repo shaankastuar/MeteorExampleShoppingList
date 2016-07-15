@@ -1,5 +1,10 @@
 <template name="Recipes">
-	{{> NewRecipe}}
+	{{#if $.Session.get 'newRecipe'}}
+	 	{{> NewRecipe}}
+	 {{else}}
+<!-- 	Above and below: If the new recipe session is true, show the form, if its false, show the button -->
+	<button class="new-recipe">New Recipe</button>
+	{{/if}}
 	<section class="recipes">
 		{{#if Template.subscriptionsReady}} 
 				{{#each recipes}}
@@ -9,4 +14,4 @@
 				<p>Loading...</p>
 		{{/if}}
 	</section>
-</template>
+</template> 
